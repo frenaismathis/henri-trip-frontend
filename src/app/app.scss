@@ -1,0 +1,48 @@
+/* ---------- Body global ---------- */
+body {
+  background-color: #121212; /* fond sombre global */
+  color: #fff;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  min-height: 100%;
+}
+
+/* ---------- Grid / responsive ---------- */
+.grid {
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .md\\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Text colors ---------- */
+.text-gray-300 { color: #d1d5db; }
+.text-gray-400 { color: #9ca3af; }
+.text-red-500 { color: #f87171; }
+.text-blue-400 { color: #60a5fa; }
+
+/* ---------- Links ---------- */
+a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+/* ---------- Mat icons ---------- */
+mat-icon {
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
