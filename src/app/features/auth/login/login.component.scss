@@ -1,0 +1,39 @@
+/* ---------- Login card ---------- */
+.login-card {
+  background-color: #1f2937;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Mat form fields ---------- */
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field-infix {
+  border: none;
+  background-color: #1f2937;
+  color: white;
+  caret-color: white;
+}
+
+.mat-form-field-label {
+  color: #d1d5db;
+}
+
+.mat-form-field.mat-focused .mat-form-field-outline {
+  border-color: #3b82f6;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-outline {
+  border-color: #f87171;
+}
+
+/* ---------- Buttons ---------- */
+button.mat-flat-button {
+  transition: all 0.2s;
+}
+button.mat-flat-button:hover {
+  transform: scale(1.02);
+}

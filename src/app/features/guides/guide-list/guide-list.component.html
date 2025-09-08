@@ -1,0 +1,22 @@
+<div class="p-4">
+  <ng-container *ngIf="guides$ | async as guides; else loading">
+    <ng-container *ngIf="guides.length > 0; else noGuides">
+      <div *ngFor="let guide of guides" class="guide-card" (click)="goToGuide(guide.id)">
+        <h2>{{ guide.title }}</h2>
+        <p>{{ guide.description }}</p>
+        <p>Jours : {{ guide.daysCount }}</p>
+        <p>Mobilités : {{ guide.mobilityOptions.map(getTranslatedMobility).join(', ') }}</p>
+        <p>Saisons : {{ guide.seasons.map(getTranslatedSeason).join(', ') }}</p>
+        <p>Public : {{ guide.audiences.map(getTranslatedAudience).join(', ') }}</p>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <p class="text-center text-gray-400">Chargement des guides...</p>
+</ng-template>
+
+<ng-template #noGuides>
+  <p class="text-center text-gray-400 mt-6">Aucun guide disponible pour le moment.</p>
+</ng-template>

@@ -1,0 +1,53 @@
+<div class="flex min-h-screen items-center justify-center bg-gray-900">
+  <div class="w-full max-w-md rounded-xl bg-gray-800 p-8 shadow-lg">
+    <h1 class="mb-6 text-center text-2xl font-bold text-white">Connexion</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <mat-form-field class="w-full">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="ex: user@henritrip.com" />
+        <mat-error
+          *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')"
+        >
+          L'email est obligatoire.
+        </mat-error>
+        <mat-error
+          *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')"
+        >
+          Format d'email invalide.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="********" />
+        <mat-error
+          *ngIf="
+            loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')
+          "
+        >
+          Le mot de passe est obligatoire.
+        </mat-error>
+        <mat-error
+          *ngIf="
+            loginForm.get('password')?.touched && loginForm.get('password')?.hasError('minlength')
+          "
+        >
+          Minimum 6 caractères.
+        </mat-error>
+      </mat-form-field>
+
+      <div *ngIf="errorMessage" class="text-sm text-red-500">{{ errorMessage }}</div>
+
+      <button
+        mat-flat-button
+        color="primary"
+        class="w-full py-2 flex justify-center items-center"
+        [disabled]="loading"
+      >
+        <span *ngIf="!loading">Se connecter</span>
+        <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+      </button>
+    </form>
+  </div>
+</div>
