@@ -1,0 +1,81 @@
+/* ---------- Cards ---------- */
+mat-card {
+  border-radius: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(255, 255, 255, 0.05);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* ---------- Expansion panels ---------- */
+.panel-guide-detail {
+  background: #1f2937;
+  color: white;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+
+  &:not(.mat-expanded) .mat-expansion-panel-header:hover {
+    background: #1f2937;
+  }
+
+  .activity-card{
+    margin-top: 16px;
+  }
+
+  .mat-expansion-panel-header {
+    font-weight: 600;
+  }
+
+  .mat-expansion-panel-header.mat-expanded {
+    background: #374151;
+  }  
+}
+
+
+
+/* ---------- Activity cards ---------- */
+.activity-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1), 0 2px 6px rgba(0, 0, 0, 0.35);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15), 0 6px 14px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.1), 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ---------- Bouton retour guides ---------- */
+button.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+button.back-button mat-icon {
+  vertical-align: middle;
+}
+
+/* ---------- Links ---------- */
+a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+}
