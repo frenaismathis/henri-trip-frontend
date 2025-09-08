@@ -1,0 +1,78 @@
+<div *ngIf="activity$ | async as activity; else loading" class="p-4 max-w-3xl mx-auto">
+  <mat-card class="bg-gray-800 text-white shadow-lg rounded-lg p-6">
+    <h1 class="text-3xl font-bold mb-4">{{ activity.title }}</h1>
+
+    <mat-accordion class="bg-gray-800 text-white">
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Description</mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="text-gray-300">{{ activity.description }}</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel *ngIf="activity.address">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="align-middle mr-1">location_on</mat-icon> Adresse
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="text-gray-300">{{ activity.address }}</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel *ngIf="activity.phone">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="align-middle mr-1">phone</mat-icon> Téléphone
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="text-gray-300">{{ activity.phone }}</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel *ngIf="activity.openingHours">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="align-middle mr-1">schedule</mat-icon> Horaires
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="text-gray-300">{{ activity.openingHours }}</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel *ngIf="activity.website">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="align-middle mr-1">link</mat-icon> Site Web
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="text-gray-300">
+          <a href="{{ activity.website }}" target="_blank" class="text-blue-400 hover:underline">
+            {{ activity.website }}
+          </a>
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Détails supplémentaires</mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="text-gray-300">
+          Jour : {{ activity.dayNumber }}, Ordre : {{ activity.orderInDay }}<br />
+          Catégorie : {{ activity.category }}
+        </p>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <button
+      mat-flat-button
+      color="primary"
+      class="mt-6 flex items-center justify-center gap-2 px-4 py-2 w-full md:w-auto"
+      [routerLink]="['/guides', guideId]"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      <span>Retour au guide</span>
+    </button>
+  </mat-card>
+</div>
+
+<ng-template #loading>
+  <p class="text-center text-gray-400 mt-6">Chargement de l'activité...</p>
+</ng-template>
