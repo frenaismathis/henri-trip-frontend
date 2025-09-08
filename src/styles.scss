@@ -1,39 +1,78 @@
-
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
+@use 'tailwindcss';
 @use '@angular/material' as mat;
 
-html {
-  @include mat.theme((
-    color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
-}
+/* ------------------------------
+   Material palette and theme
+------------------------------- */
+$primary: mat.m2-define-palette(mat.$m2-indigo-palette, 500, 100, 700);
+$accent: mat.m2-define-palette(mat.$m2-pink-palette, 500);
+$warn: mat.m2-define-palette(mat.$m2-red-palette);
 
+$dark-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  )
+));
+
+@include mat.all-component-themes($dark-theme);
+
+/* ------------------------------
+   Body and global layout
+------------------------------- */
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
+  background-color: #121212; /* Global dark background */
+  color: #fff;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   margin: 0;
 }
-@import 'tailwindcss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+/* ------------------------------
+   Angular Material input overrides
+------------------------------- */
+
+/* Filled inputs */
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #1f2937 !important; /* Uniform dark gray */
+  color: white !important;
+  caret-color: white !important;
+}
+
+/* Focus overlay transparent */
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+/* Labels and placeholders */
+.mat-form-field-label {
+  color: #d1d5db !important; /* Light gray */
+}
+
+/* Outline */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: #4b5563; /* Medium gray */
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  border-color: #3b82f6; /* Focus blue */
+}
+
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline {
+  border-color: #f87171; /* Error red */
+}
+
+/* ------------------------------
+   Global buttons
+------------------------------- */
+button.mat-flat-button {
+  transition: all 0.2s;
+}
+
+button.mat-flat-button:hover {
+  transform: scale(1.02);
+}
