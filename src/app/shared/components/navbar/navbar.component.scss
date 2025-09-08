@@ -1,0 +1,12 @@
+nav {
+  background-color: #1f2937;
+}
+
+nav a, nav span, nav button {
+  color: white;
+  transition: all 0.2s;
+}
+
+nav a:hover, nav button:hover {
+  opacity: 0.85;
+}
