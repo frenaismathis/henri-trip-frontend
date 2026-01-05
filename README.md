@@ -1,6 +1,9 @@
 # HenriTrip Frontend
 
-Frontend for the HenriTrip application, built with Angular 17, Angular Material, TailwindCSS, and SCSS.
+Frontend Angular Development for a Fullstack Web Project with an Application-Oriented Focus, Close to Professional Contexts.
+
+## Description
+Angular application connected to a REST backend (Java / .NET) for managing travel guides. Modular, responsive, and maintainable architecture, following professional best practices.
 
 ## Table of Contents
 
