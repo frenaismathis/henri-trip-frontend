@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { GuideService, Guide } from '../../../core/services/guide.service';
+import { GuideService } from '../../../core/services/guide.service';
+import { Guide } from '../../../shared/models/guide.model';
 import { Observable } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
