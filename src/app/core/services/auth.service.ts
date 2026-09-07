@@ -53,7 +53,7 @@ export class AuthService {
                 this.http.get<User>(`${this.apiUrl}/users/me`).pipe(
                     tap(user => {
                         if (!user.id) throw new Error('User.id manquant dans /users/me');
-                        // Stocke l’objet complet en JSON
+                        // Store the full object as JSON
                         localStorage.setItem(this.USER_KEY, JSON.stringify(user));
                         this.currentUserSubject.next(user);
                     })
