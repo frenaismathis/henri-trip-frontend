@@ -27,7 +27,7 @@ export class GuideService {
     getGuideById(guideId: string): Observable<Guide> {
         return this.auth.currentUser$.pipe(
             switchMap(user => {
-                if (!user) return throwError(() => new Error('Utilisateur non connecté'));
+                if (!user) return throwError(() => new Error('User not logged in'));
                 return this.http.get<Guide>(`${this.apiUrl}/${guideId}/forUser/${user.id}`);
             })
         );
@@ -37,5 +37,14 @@ export class GuideService {
         const params: any = {};
         if (dayNumber) params.dayNumber = dayNumber;
         return this.http.get<Activity[]>(`${this.apiUrl}/${guideId}/activities`, { params });
+    }
+
+    getActivityById(guideId: string, activityId: string): Observable<Activity> {
+        return this.auth.currentUser$.pipe(
+            switchMap(user => {
+                if (!user) return throwError(() => new Error('User not logged in'));
+                return this.http.get<Activity>(`${this.apiUrl}/${guideId}/activities/${activityId}`);
+            })
+        );
     }
 }

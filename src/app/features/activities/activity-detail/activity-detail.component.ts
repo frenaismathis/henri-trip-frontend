@@ -3,7 +3,7 @@ import { CommonModule, AsyncPipe } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { GuideService } from '../../../core/services/guide.service';
 import { Activity } from '../../../shared/models/activity.model';
-import { Observable, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -32,13 +32,7 @@ export class ActivityDetailComponent implements OnInit {
             this.guideId = guideId;
             this.activityId = activityId;
 
-            this.activity$ = this.guideService.getActivities(this.guideId).pipe(
-                switchMap(activities => {
-                    const activity = activities.find(a => a.id === this.activityId);
-                    if (!activity) throw new Error('Activité introuvable');
-                    return [activity];
-                })
-            );
+            this.activity$ = this.guideService.getActivityById(this.guideId, this.activityId);
 
             setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
         });
