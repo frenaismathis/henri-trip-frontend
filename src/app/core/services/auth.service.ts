@@ -39,13 +39,13 @@ export class AuthService {
     login(credentials: { email: string; password: string }): Observable<User> {
         return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, credentials).pipe(
             tap(res => {
-                if (!res.token) throw new Error('Token manquant dans la réponse du backend');
+                if (!res.token) throw new Error('Token missing from backend response');
                 localStorage.setItem(this.TOKEN_KEY, res.token);
             }),
             switchMap(() =>
                 this.http.get<User>(`${this.apiUrl}/users/me`).pipe(
                     tap(user => {
-                        if (!user.id) throw new Error('User.id manquant dans /users/me');
+                        if (!user.id) throw new Error('User.id missing from /users/me');
                         // Store the full object as JSON
                         localStorage.setItem(this.USER_KEY, JSON.stringify(user));
                         this.currentUserSubject.next(user);

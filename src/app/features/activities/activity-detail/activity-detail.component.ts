@@ -28,7 +28,7 @@ export class ActivityDetailComponent implements OnInit {
         this.route.paramMap.subscribe(params => {
             const guideId = params.get('guideId');
             const activityId = params.get('activityId');
-            if (!guideId || !activityId) throw new Error('Guide ou activité manquant');
+            if (!guideId || !activityId) throw new Error('Missing guide or activity');
             this.guideId = guideId;
             this.activityId = activityId;
 

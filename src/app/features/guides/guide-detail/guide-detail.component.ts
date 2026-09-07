@@ -28,7 +28,7 @@ export class GuideDetailComponent implements OnInit {
         const guideId$ = this.route.paramMap.pipe(
             map(params => {
                 const guideId = params.get('id');
-                if (!guideId) throw new Error('Guide ID manquant');
+                if (!guideId) throw new Error('Missing guide ID');
                 return guideId;
             })
         );
