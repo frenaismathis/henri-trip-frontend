@@ -1,7 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { GuideService, Guide, Activity } from '../../../core/services/guide.service';
+import { GuideService } from '../../../core/services/guide.service';
+import { Guide } from '../../../shared/models/guide.model';
+import { Activity } from '../../../shared/models/activity.model';
 import { Observable, switchMap, map } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';

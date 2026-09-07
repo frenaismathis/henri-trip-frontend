@@ -3,14 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-
-export interface User {
-    id: string;
-    firstname: string;
-    lastname: string;
-    role: string;
-    email: string;
-}
+import { User } from '../../shared/models/user.model';
 
 interface LoginResponse {
     token: string;

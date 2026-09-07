@@ -4,9 +4,9 @@ export interface Activity {
     description: string;
     category: string;
     address: string;
-    phone: string;
-    openingHours: string;
-    website: string;
+    phone?: string;
+    openingHours?: string;
+    website?: string;
     dayNumber: number;
     orderInDay: number;
 }

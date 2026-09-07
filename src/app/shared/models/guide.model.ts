@@ -1,7 +1,12 @@
+import { Activity } from './activity.model';
+
 export interface Guide {
     id: string;
     title: string;
-    description: string;
+    description?: string;
     daysCount: number;
-    options: string[];
+    mobilityOptions: string[];
+    seasons: string[];
+    audiences: string[];
+    activities?: Activity[];
 }

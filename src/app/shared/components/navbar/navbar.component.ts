@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
-import { AuthService, User } from '../../../core/services/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
+import { User } from '../../models/user.model';
 import { Observable } from 'rxjs';
 
 @Component({

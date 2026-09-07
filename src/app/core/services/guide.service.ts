@@ -1,32 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, switchMap, throwError } from 'rxjs';
-import { AuthService, User } from './auth.service';
+import { AuthService } from './auth.service';
+import { User } from '../../shared/models/user.model';
+import { Activity } from '../../shared/models/activity.model';
+import { Guide } from '../../shared/models/guide.model';
 import { environment } from '../../../environments/environment';
-
-export interface Activity {
-    id: string;
-    title: string;
-    description: string;
-    category: string;
-    address: string;
-    phone?: string;
-    openingHours?: string;
-    website?: string;
-    dayNumber: number;
-    orderInDay: number;
-}
-
-export interface Guide {
-    id: string;
-    title: string;
-    description?: string;
-    daysCount: number;
-    mobilityOptions: string[];
-    seasons: string[];
-    audiences: string[];
-    activities?: Activity[];
-}
 
 @Injectable({
     providedIn: 'root'
