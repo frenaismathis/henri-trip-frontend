@@ -50,7 +50,7 @@ Frontend for the HenriTrip application, built with Angular 17, Angular Material,
 ### Clone the repository
 
 ```sh
-git clone https://github.com/yourusername/henri-trip-frontend.git
+git clone https://github.com/frenaismathis/henri-trip-frontend.git
 cd henri-trip-frontend
 ```
 
